@@ -9,5 +9,5 @@ public class DoggyfinderApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DoggyfinderApplication.class, args);
 	}
-
+		
 }
