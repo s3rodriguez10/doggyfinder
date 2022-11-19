@@ -23,6 +23,7 @@ public class PetController {
 
     @PostMapping("/post")
     public ResponseEntity<PetDTO> create(@RequestBody PetDTO dto){
+        System.out.println(dto.toString());
         return new ResponseEntity(iPetService.save(dto), HttpStatus.CREATED);
     }
 

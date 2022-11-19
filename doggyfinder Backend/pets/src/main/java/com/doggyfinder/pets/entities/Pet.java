@@ -1,7 +1,15 @@
 package com.doggyfinder.pets.entities;
 
-import javax.persistence.*;
+import com.doggyfinder.pets.enums.TypePet;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import javax.persistence.*;
+import java.util.Date;
+
+@Setter @Getter @AllArgsConstructor @NoArgsConstructor
 @Entity
 public class Pet {
 
@@ -10,23 +18,12 @@ public class Pet {
     @Column(name = "id_pet")
     private Long idPet;
 
-    @Column(name = "name_pet")
+    @Column(name = "name_pet",length = 40)
     private String name;
 
-    public void setIdPet(Long idPet) {
-        this.idPet = idPet;
-    }
+    @Column
+    private Date dateOfBirth;
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Long getIdPet() {
-        return idPet;
-    }
-
-    public String getName() {
-        return name;
-    }
-
+    @Enumerated(EnumType.STRING)
+    private TypePet typeOfPet;
 }
