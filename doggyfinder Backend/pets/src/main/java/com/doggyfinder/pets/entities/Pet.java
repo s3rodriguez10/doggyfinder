@@ -1,6 +1,7 @@
 package com.doggyfinder.pets.entities;
 
 import com.doggyfinder.pets.enums.TypePet;
+import com.doggyfinder.pets.security.entities.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,6 +12,7 @@ import java.util.Date;
 
 @Setter @Getter @AllArgsConstructor @NoArgsConstructor
 @Entity
+@Table(name = "pets")
 public class Pet {
 
     @Id
@@ -26,4 +28,8 @@ public class Pet {
 
     @Enumerated(EnumType.STRING)
     private TypePet typeOfPet;
+
+    @ManyToOne
+    @JoinColumn(name = "id_user",insertable = false,updatable = false)
+    private User user;
 }
