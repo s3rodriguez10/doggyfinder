@@ -36,4 +36,8 @@ public class User {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<Pet> pets = new ArrayList<>();
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "likes",joinColumns = @JoinColumn(name = "id_user"),inverseJoinColumns = @JoinColumn(name = "id_pet"))
+    private List<Pet> likedPets = new ArrayList<>();
 }
