@@ -30,6 +30,14 @@ public class User {
     private String email;
     private String password;
 
+    public User(String name, String lastName, String username, String email, String password) {
+        this.name = name;
+        this.lastName = lastName;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(joinColumns = @JoinColumn(name = "id_user"),inverseJoinColumns = @JoinColumn(name = "id_role"))
     private Set<Role> roles = new HashSet<>();
